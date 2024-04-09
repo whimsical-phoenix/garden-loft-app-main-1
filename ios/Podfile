@@ -1,0 +1,119 @@
+# require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
+# require File.join(File.dirname(`node --print "require.resolve('react-native/package.json')"`), "scripts/react_native_pods")
+
+# require 'json'
+# podfile_properties = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
+
+# ENV['RCT_NEW_ARCH_ENABLED'] = podfile_properties['newArchEnabled'] == 'true' ? '1' : '0'
+# ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = podfile_properties['EX_DEV_CLIENT_NETWORK_INSPECTOR']
+
+# platform :ios, podfile_properties['ios.deploymentTarget'] || '10.4'
+# install! 'cocoapods', :deterministic_uuids => false
+
+# prepare_react_native_project!
+
+# # Configuration for Flipper (only enabled in Debug mode)
+# flipper_config = podfile_properties.key?('ios.flipper') && podfile_properties['ios.flipper'] == 'true' ? FlipperConfiguration.enabled(["Debug"]) : FlipperConfiguration.disabled
+
+
+
+# target 'gardenloftapp' do
+#   use_expo_modules!
+#   config = use_native_modules!
+
+#   # Dynamic frameworks can be linked dynamically or statically.
+#   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties.key?('ios.useFrameworks')
+
+#   # Example Pods for integrating LibSignalClient and SignalCoreKit
+#   pod 'LibSignalClient', :git => 'https://github.com/signalapp/libsignal-client.git'
+#   pod 'SignalCoreKit', :git => 'https://github.com/signalapp/SignalCoreKit.git'
+#   pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+# pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
+
+#   use_react_native!(
+#     :path => config[:reactNativePath],
+#     :hermes_enabled => podfile_properties['expo.jsEngine'] == 'hermes',
+#     :app_path => "#{Pod::Config.instance.installation_root}/..",
+#     :flipper_configuration => flipper_config
+#   )
+
+#   post_install do |installer|
+#     react_native_post_install(installer, config[:reactNativePath], :mac_catalyst_enabled => false)
+#     installer.pods_project.targets.each do |target|
+#       target.build_configurations.each do |config|
+#         config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+#       end
+#     end
+#   end
+# end
+
+require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
+require File.join(File.dirname(`node --print "require.resolve('react-native/package.json')"`), "scripts/react_native_pods")
+
+require 'json'
+podfile_properties = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
+
+ENV['RCT_NEW_ARCH_ENABLED'] = podfile_properties['newArchEnabled'] == 'true' ? '1' : '0'
+ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = podfile_properties['EX_DEV_CLIENT_NETWORK_INSPECTOR']
+# ENV['LIBSIGNAL_FFI_PREBUILD_CHECKSUM'] = '...'
+
+platform :ios, podfile_properties['ios.deploymentTarget'] || '14.0'
+install! 'cocoapods', :deterministic_uuids => false
+
+prepare_react_native_project!
+
+# Configuration for Flipper (only enabled in Debug mode)
+flipper_config = podfile_properties.key?('ios.flipper') && podfile_properties['ios.flipper'] == 'true' ? FlipperConfiguration.enabled(["Debug"]) : FlipperConfiguration.disabled
+
+# platform :ios, '13.0' # Ensure this is set to the minimum version you intend to support
+
+target 'gardenloftapp' do # Replace 'YourTargetName' with 'gardenloftapp'
+  # Use modular headers for specific pods
+  pod 'Firebase/Core', :modular_headers => true
+  # pod 'WherebySDK' , :git => 'https://github.com/whereby/ios-sdk.git'
+  pod 'SignalCoreKit', :git => 'https://github.com/signalapp/SignalCoreKit.git'
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'CocoaLumberjack', :modular_headers => true
+
+  # Pods for React Native Firebase
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
+  # Ensure you include the Expo and React Native auto-linking scripts
+  use_expo_modules!
+  config = use_native_modules!
+
+  # Dynamic frameworks can be linked dynamically or statically.
+  use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties.key?('ios.useFrameworks')
+
+  # Your existing React Native and Expo setup
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => podfile_properties['expo.jsEngine'] == 'hermes',
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
+    :flipper_configuration => flipper_config
+  )
+
+  post_install do |installer|
+    react_native_post_install(installer, config[:reactNativePath], :mac_catalyst_enabled => false)
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
+  end
+end
+
+# Include the required scripts for React Native and Expo autolinking
+require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
+require File.join(File.dirname(`node --print "require.resolve('react-native/package.json')"`), "scripts/react_native_pods")
+
+require 'json'
+podfile_properties = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
+
+ENV['RCT_NEW_ARCH_ENABLED'] = podfile_properties['newArchEnabled'] == 'true' ? '1' : '0'
+ENV['EX_DEV_CLIENT_NETWORK_INSPECTOR'] = podfile_properties['EX_DEV_CLIENT_NETWORK_INSPECTOR']
+
+# Configuration for Flipper (only enabled in Debug mode)
+flipper_config = podfile_properties.key?('ios.flipper') && podfile_properties['ios.flipper'] == 'true' ? FlipperConfiguration.enabled(["Debug"]) : FlipperConfiguration.disabled
