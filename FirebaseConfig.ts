@@ -12,13 +12,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBX5lW9f4g8-9ejp4Xj7RUFJD1yww2WmfM",
-  authDomain: "garden-loft-app-6df76.firebaseapp.com",
-  projectId: "garden-loft-app-6df76",
-  storageBucket: "garden-loft-app-6df76.appspot.com",
-  messagingSenderId: "556786122311",
-  appId: "1:556786122311:web:c78aa39ad0a59c7e157b62",
-  measurementId: "G-MYDB1MPW0X"
+  apiKey: "", //find files in .env
+  authDomain: "", //find files in .env
+  projectId: "", //find files in .env
+  storageBucket: "", //find files in .env
+  messagingSenderId: "", //find files in .env
+  appId: "", //find files in .env
+  measurementId: "" //find files in .env
 };
 
 // Initialize Firebase
