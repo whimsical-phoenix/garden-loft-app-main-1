@@ -16,6 +16,7 @@ import Entertainment from "../CarouselTwo/Entertainment";
 import Gallery from "../CarouselTwo/Gallery";
 import GLCommunity from "../CarouselTwo/GLCommunity";
 import TestVideo from "../TestVideo";
+import VideoCallCarousel from "../CarouselTwo/VideoCall";
 // import { FIRESTORE_DB } from "@/FirebaseConfig";
 // import { FIRESTORE_DB } from "../../../FirebaseConfig";
 
@@ -39,7 +40,7 @@ const data: Item[] = [
   {
     title: "VIDEO CALL",
     icon: "phone",
-    component: <TestVideo />,
+    component: <VideoCallCarousel />,
     prompt: "Make a Video Call?",
   },
   {

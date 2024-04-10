@@ -12,13 +12,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "", //find files in .env
-  authDomain: "", //find files in .env
-  projectId: "", //find files in .env
-  storageBucket: "", //find files in .env
-  messagingSenderId: "", //find files in .env
-  appId: "", //find files in .env
-  measurementId: "" //find files in .env
+  //please go to .env file and use the tokens there
 };
 
 // Initialize Firebase
