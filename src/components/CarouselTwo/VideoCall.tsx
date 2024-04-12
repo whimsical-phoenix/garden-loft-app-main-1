@@ -145,6 +145,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FIRESTORE_DB } from "../../../FirebaseConfig";
 import { doc, getDoc } from 'firebase/firestore';
 import YoutubePlayer from 'react-native-youtube-iframe';
+import App from '../../../App'
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -244,14 +245,15 @@ const VideoCallCarousel = () => {
           >
             <FontAwesome name="arrow-left" size={24} color="black" />
           </TouchableOpacity>
-          {youtubeId && (
+          {/* {youtubeId && (
             <YoutubePlayer
               height={viewportHeight * 0.8}
               width={viewportWidth * 0.8}
               videoId={youtubeId}
               play={true}
             />
-          )}
+          )} */}
+          <App />
         </View>
       </Modal>
     </View>
@@ -300,6 +302,7 @@ const styles = StyleSheet.create({
       },
   modalView: {
     margin: 20,
+    height: viewportHeight * 0.9,
     marginTop: 30,
     backgroundColor: "white",
     borderRadius: 20,

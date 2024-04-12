@@ -80,6 +80,9 @@ target 'gardenloftapp' do # Replace 'YourTargetName' with 'gardenloftapp'
   pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
   pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
 
+  # Pods for VideoSDK
+  pod 'react-native-webrtc', :path => '../node_modules/@videosdk.live/react-native-webrtc'
+
   # Ensure you include the Expo and React Native auto-linking scripts
   use_expo_modules!
   config = use_native_modules!

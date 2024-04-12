@@ -13,6 +13,13 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   //please go to .env file and use the tokens there
+  apiKey: "AIzaSyBX5lW9f4g8-9ejp4Xj7RUFJD1yww2WmfM",
+  authDomain: "garden-loft-app-6df76.firebaseapp.com",
+  projectId: "garden-loft-app-6df76",
+  storageBucket: "garden-loft-app-6df76.appspot.com",
+  messagingSenderId: "556786122311",
+  appId: "1:556786122311:web:c78aa39ad0a59c7e157b62",
+  measurementId: "G-MYDB1MPW0X"
 };
 
 // Initialize Firebase

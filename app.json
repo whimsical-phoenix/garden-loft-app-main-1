@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "garden-loft-app",
-    "slug": "garden-loft-app",
+    "name": "garden-loft-app-main",
+    "slug": "garden-loft-app-main",
     "version": "1.0.0",
     "orientation": "landscape",
     "icon": "./assets/images/icon.png",
