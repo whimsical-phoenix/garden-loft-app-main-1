@@ -145,7 +145,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FIRESTORE_DB } from "../../../FirebaseConfig";
 import { doc, getDoc } from 'firebase/firestore';
 import YoutubePlayer from 'react-native-youtube-iframe';
-import App from '../../../App'
+import VideoSK from './VideoSK';
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -239,11 +239,18 @@ const VideoCallCarousel = () => {
         }}
       >
         <View style={styles.modalView}>
+          {/* <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => setIsModalVisible(!isModalVisible)}
+          >
+            <FontAwesome name="arrow-left" size={24} color="black" />
+          </TouchableOpacity> */}
           <TouchableOpacity
             style={styles.closeButton}
             onPress={() => setIsModalVisible(!isModalVisible)}
           >
             <FontAwesome name="arrow-left" size={24} color="black" />
+            <Text style={styles.closeText}>Back To Garden Loft App</Text>
           </TouchableOpacity>
           {/* {youtubeId && (
             <YoutubePlayer
@@ -253,7 +260,7 @@ const VideoCallCarousel = () => {
               play={true}
             />
           )} */}
-          <App />
+          <VideoSK />
         </View>
       </Modal>
     </View>
@@ -320,9 +327,23 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: 'absolute',
-    left: 10,
-    top: 10,
+    left: 400,
+    top: 30,
+    backgroundColor: "lightblue",
+    padding: 13,
+    borderRadius: 5,
   },
+  closeText: {
+    fontSize: 24,
+    position: 'absolute',
+    left: 40,
+    top: 0,
+    width: 320, 
+    backgroundColor: "lightblue",
+    padding: 10,
+    borderRadius: 70,
+
+  }
 });
 
 export default VideoCallCarousel;

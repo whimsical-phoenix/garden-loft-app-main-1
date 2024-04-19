@@ -43,14 +43,10 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<!-- <key>NSCameraUsageDescription</key>
-	<string>This app uses the camera to scan barcodes on event tickets.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This app requires microphone access to make video calls.</string> -->
 	<key>NSCameraUsageDescription</key>
-<string>Camera permission description</string>
-<key>NSMicrophoneUsageDescription</key>
-<string>Microphone permission description</string>
+	<string>Camera permission description</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone permission description</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app requires access to your photo library to select photos.</string>
 	<key>NSUserActivityTypes</key>
