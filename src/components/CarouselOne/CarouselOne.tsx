@@ -59,7 +59,7 @@ const data: Item[] = [
     title: "HOW-TO VIDEOS",
     icon: "account-question",
     component: <HowTo />,
-    prompt: "View Gallery?",
+    prompt: "How To?",
   },
   {
     title: "LIGHTS",
